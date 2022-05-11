@@ -60,3 +60,40 @@ p {
   padding-top: 24px;
 }
 ```
+
+## Media Queries
+
+Media queries use the @media syntax. You can kinda think of it as an if statement in JavaScript:
+
+```css
+/* CSS */
+@media (condition) {
+  /* Some CSS that'll run if the condition is met. */
+}
+```
+
+It's common to use media queries to have alternative interfaces depending on the screen size.
+
+```css
+.large-screens {
+  display: none;
+}
+
+@media (min-width: 300px) {
+  .large-screens {
+    display: block;
+  }
+  .small-screens {
+    display: none;
+  }
+}
+```
+
+```html
+<div class="large-screens">I only show up on large screens.</div>
+<div class="small-screens">Meanwhile, you'll only see me on small ones.</div>
+```
+
+Inside the parentheses, we typically use either `max-width` to add styles on small screens, or min-width to add styles on larger ones.
+
+The syntax looks quite a lot like the declaration syntax, especially since `max-width`: 1023px is a valid CSS declaration! Unfortunately, this is misleading; In the context of a media query, `max-width` is a “media feature”, not a CSS property. They just happen to share the same name.
